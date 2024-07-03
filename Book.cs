@@ -1,4 +1,4 @@
-﻿namespace BookCubAPI
+﻿namespace BookClubAPI
 {
     public class Book
     {
