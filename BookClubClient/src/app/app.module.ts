@@ -7,6 +7,7 @@ import { BookService } from 'src/app/services/book.service';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, BookListComponent],
@@ -16,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
+    BrowserAnimationsModule,
   ],
   providers: [BookService],
   bootstrap: [AppComponent],

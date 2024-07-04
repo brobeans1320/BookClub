@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatPaginatorSelectConfig, _MatPaginatorBase } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
@@ -15,8 +16,7 @@ export class BookListComponent implements OnInit {
   dataSource: MatTableDataSource<Book> = new MatTableDataSource;
   displayedColumns: string[] = [ 
     "title", 
-    "authorFirstName", 
-    "authorLastName", 
+    "authorName", 
     "publicationDate", 
     "pageCount", 
     "genre"
@@ -24,15 +24,16 @@ export class BookListComponent implements OnInit {
 
   constructor(private bookService: BookService) {}
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   ngOnInit(): void {
     this.getBooks();
-    console.log("Hello");
   }
 
   async getBooks() {
     this.bookService.getBooks().subscribe((data: Book[]) => {
-      this.dataSource.data = data
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
     });
-    console.log("I'm working!");
   }
 }
