@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSortModule } from '@angular/material/sort';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [AppComponent, BookListComponent],
@@ -19,7 +20,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent],

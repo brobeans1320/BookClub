@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+      font-family: 'BTBrik-XXL';
+      src: url(src\assets\fonts\BTBrik-XXL.ttf) format('truetype');
+}
+
+@font-face {
+      font-family: 'VTCDuBois-BoldWide';
+      src: url(src\assets\fonts\VTCDuBois-BoldWide.ttf) format('truetype');
+}

@@ -16,9 +16,9 @@
     </ng-container>
 
     <ng-container matColumnDef="publicationDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Published</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Year Published</th>
       <td mat-cell *matCellDef="let book">
-        {{ book.publicationDate }}
+        {{ book.publicationDate | date:'yyyy' }}
       </td>
     </ng-container>
 
