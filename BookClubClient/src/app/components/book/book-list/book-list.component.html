@@ -1,36 +1,36 @@
 <!--Main book table-->
 <div class="book-table-container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z22">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z22">
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
       <td mat-cell *matCellDef="let book">
         {{ book.title }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="authorName">
-      <th mat-header-cell *matHeaderCellDef>Author</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Author</th>
       <td mat-cell *matCellDef="let book">
         {{ book.authorLastName + ", " + book.authorFirstName }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="publicationDate">
-      <th mat-header-cell *matHeaderCellDef>Date Published</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Published</th>
       <td mat-cell *matCellDef="let book">
         {{ book.publicationDate }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="pageCount">
-      <th mat-header-cell *matHeaderCellDef># of Pages</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># of Pages</th>
       <td mat-cell *matCellDef="let book">
         {{ book.pageCount }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="genre">
-      <th mat-header-cell *matHeaderCellDef>Genre</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Genre</th>
       <td mat-cell *matCellDef="let book">
         {{ book.genre }}
       </td>
@@ -40,7 +40,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <mat-paginator
-    [pageSize]="15"
-    [pageSizeOptions]="[15, 25, 100]"
+    [pageSize]="25"
+    [pageSizeOptions]="[15, 25, 50]"
   ></mat-paginator>
 </div>
