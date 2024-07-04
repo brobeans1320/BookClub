@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Author { get; set; }
-        //public int YearPublished { get; set; }
+        public string AuthorFirstName { get; set; }
+        public string AuthorLastName { get; set; }
         public DateTime PublicationDate {  get; set; }
         public int PageCount { get; set; }
         public string Genre { get; set; }
