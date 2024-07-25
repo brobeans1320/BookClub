@@ -7,7 +7,7 @@ const routes: Routes = [
     path: 'mybooks',
     component: BookListComponent,
   },
-  { path: '', redirectTo: '/books', pathMatch: 'full' },
+  // { path: '', redirectTo: '/books', pathMatch: 'full' },
 ];
 
 @NgModule({

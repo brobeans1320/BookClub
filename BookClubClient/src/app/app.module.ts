@@ -9,10 +9,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSortModule } from '@angular/material/sort';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BookViewFlyoutComponent } from './components/book/book-view-flyout/book-view-flyout.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent],
+  declarations: [AppComponent, BookListComponent, BookViewFlyoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +24,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatSortModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [BookService],
   bootstrap: [AppComponent],

@@ -10,7 +10,6 @@ namespace BookClubAPI.Services
         Task<int> UpdateBook(Book book);
         Task<int> DeleteBook(int id);
 
-
         public class BookService : IBookService
         {
             private readonly IConfiguration _configuration;

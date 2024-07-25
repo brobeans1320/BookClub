@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import {
   MatPaginator,
   MatPaginatorSelectConfig,
@@ -8,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
+import { BookViewFlyoutComponent } from '../book-view-flyout/book-view-flyout.component';
 
 @Component({
   selector: 'app-book-list',
@@ -27,10 +29,10 @@ export class BookListComponent implements OnInit {
     'genre',
   ];
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private dialog: MatDialog) {}
 
   @ViewChild(MatPaginator) matPaginator!: MatPaginator;
-  @ViewChild(MatSort) matSort!:MatSort;
+  @ViewChild(MatSort) matSort!: MatSort;
 
   ngOnInit(): void {
     this.getBooks();
@@ -45,5 +47,9 @@ export class BookListComponent implements OnInit {
       this.dataSource.paginator = this.matPaginator;
       this.dataSource.sort = this.matSort;
     });
+  }
+
+  openBookFlyout(row: Book): void {
+    this.dialog.open(BookViewFlyoutComponent, { data: row });
   }
 }

@@ -1,0 +1,19 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <p>Author: {{ data.authorLastName }}, {{ data.authorFirstName }}</p>
+  <p>Date Published: {{ data.publicationDate | date : "MM/dd/yyyy" }}</p>
+  <p>Page Count: {{ data.pageCount }}</p>
+  <p>Genre: {{ data.genre }}</p>
+  <p>Tags: {{ data.tags }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>
+    <span class="material-icons">close</span>
+    Close
+  </button>
+</div>
