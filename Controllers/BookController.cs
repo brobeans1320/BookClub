@@ -1,4 +1,5 @@
-﻿using BookClubAPI.Services;
+﻿using BookClubAPI.Data_Objects;
+using BookClubAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,29 +18,71 @@ namespace BookClubAPI.Controllers
         [HttpGet("getBooks")]
         public async Task<ActionResult<List<Book>>> GetBooks()
         {
-            List<Book> bookList = await _bookService.SelectAllBooks();
-            return Ok(bookList);
+            try
+            {
+                List<Book> bookList = await _bookService.SelectAllBooks();
+                return Ok(bookList);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("GetBooks failed in controller: " + ex.Message, ex);
+            }
         }
 
         [HttpPost("createBook")]
         public async Task<ActionResult<int>> CreateBook(Book book)
         {
-            var result = await _bookService.CreateBook(book);
-            return Ok(result);
+            try
+            {
+                var result = await _bookService.CreateBook(book);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("CreateBook failed in controller: " + ex.Message, ex);
+            }
         }
 
         [HttpPut("updateBook")]
         public async Task<ActionResult<int>> UpdateBook(Book book)
         {
-            var result = await _bookService.UpdateBook(book); 
-            return Ok(result);
+            try
+            {
+                var result = await _bookService.UpdateBook(book);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("UpdateBook failed in controller: " + ex.Message, ex);
+            }
         }
 
         [HttpDelete("deleteBook/{id}")]
         public async Task<ActionResult<int>> DeleteBook(int id)
         {
-            var result = await _bookService.DeleteBook(id);
-            return Ok(result);
+            try
+            {
+                var result = await _bookService.DeleteBook(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("DeleteBook failed in controller: " + ex.Message, ex);
+            }
+        }
+
+        [HttpGet("genre/list")]
+        public async Task<ActionResult<int>> GetGenres()
+        {
+            try
+            {
+                List<Genre> genreList = await _bookService.GetGenres();
+                return Ok(genreList);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("GetGenres failed in controller: " + ex.Message, ex);
+            }
         }
     }
 }
