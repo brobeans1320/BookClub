@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookClubAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/book")]
     [ApiController]
     public class BookController : ControllerBase
     {
@@ -15,12 +15,12 @@ namespace BookClubAPI.Controllers
             _bookService = bookService;
         }
 
-        [HttpGet("getBooks")]
+        [HttpGet("book/list")]
         public async Task<ActionResult<List<Book>>> GetBooks()
         {
             try
             {
-                List<Book> bookList = await _bookService.SelectAllBooks();
+                List<Book> bookList = await _bookService.GetBooks();
                 return Ok(bookList);
             }
             catch (Exception ex)
@@ -29,7 +29,7 @@ namespace BookClubAPI.Controllers
             }
         }
 
-        [HttpPost("createBook")]
+        [HttpPost("book/insert")]
         public async Task<ActionResult<int>> CreateBook(Book book)
         {
             try
@@ -43,7 +43,7 @@ namespace BookClubAPI.Controllers
             }
         }
 
-        [HttpPut("updateBook")]
+        [HttpPut("book/update")]
         public async Task<ActionResult<int>> UpdateBook(Book book)
         {
             try
@@ -57,7 +57,7 @@ namespace BookClubAPI.Controllers
             }
         }
 
-        [HttpDelete("deleteBook/{id}")]
+        [HttpDelete("book/delete/{id}")]
         public async Task<ActionResult<int>> DeleteBook(int id)
         {
             try
